@@ -8,6 +8,16 @@
     "yarn": "*"
   },
   "scripts": {
+    "dev": "nodemon ./src/index.js",
+    "lint": "eslint **/*.js --ignore-path .gitignore --ignore-pattern internals/scripts",
+    "lint:fix": "yarn lint -- --fix",
+    "lint:watch": "yarn lint -- --watch",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "postcoverage": "opn coverage/lcov-report/index.html",
+    "validate": "yarn lint && yarn test",
+    "postpublish": "git push --tags",
+    "docs": "apidoc -i src -o docs",
+    "postdocs": "opn docs/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
