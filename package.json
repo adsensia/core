@@ -18,6 +18,8 @@
     "postpublish": "git push --tags",
     "docs": "apidoc -i src -o docs",
     "postdocs": "opn docs/index.html",
+    "docker:start": "cross-env NODE_ENV=production pm2-docker start ./src/index.js",
+    "docker:dev": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml up",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
